@@ -3,389 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>소방공무원 계급별 승진 가점 로드맵</title>
+    <title>소방공무원 승진 가점 로드맵</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
-            background-color: #fcfcfc;
-            color: #333333;
-            line-height: 1.6;
-            padding: 40px 20px;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(255, 112, 67, 0.15);
-            border: 3px solid #ff7043; /* 당근색 메인 테두리 */
-            overflow: hidden;
-        }
-        
-        /* 헤더 영역 */
-        .header {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            text-align: center;
-            border-bottom: 2px dashed #ff7043;
-        }
-        .header h1 {
-            color: #e65100;
-            font-size: 28px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .header p {
-            color: #666666;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
-        
-        /* 일구 캐릭터 메인 안내 존 */
-        .ilgu-container {
-            display: flex;
-            align-items: center;
-            background-color: #fff3e0;
-            border: 1px solid #ffb74d;
-            border-radius: 12px;
-            padding: 22px;
-            margin: 0 10px;
-            text-align: left;
-        }
-        .ilgu-img {
-            width: 90px;
-            height: auto;
-            border-radius: 8px;
-            margin-right: 22px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            flex-shrink: 0;
-        }
-        .ilgu-talk {
-            font-size: 15px;
-            color: #d84315;
-            font-weight: bold;
-            line-height: 1.8;
-            letter-spacing: -0.3px;
-        }
-        .ilgu-talk .highlight-line {
-            display: block;
-            margin-top: 4px;
-            color: #e65100;
-            font-size: 14px;
-            font-weight: 800;
-        }
-
-        /* 탭 버튼 스타일 */
-        .tab-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0 10px 0;
-            padding: 0 30px;
-        }
-        .tab-btn {
-            flex: 1;
-            max-width: 250px;
-            padding: 14px 0;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
-            border: 2px solid #ff7043;
-            border-radius: 30px;
-            background-color: #ffffff;
-            color: #ff7043;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .tab-btn.active {
-            background-color: #ff7043;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(255, 112, 67, 0.3);
-        }
-        .tab-btn:hover {
-            background-color: #fff5f2;
-        }
-        .tab-btn.active:hover {
-            background-color: #e65100;
-            border-color: #e65100;
-        }
-
-        /* 콘텐츠 본문 */
-        .content {
-            padding: 20px 30px 35px 30px;
-        }
-
-        /* 유의사항 하이라이트 박스 */
-        .highlight-box {
-            background-color: #fffde7;
-            border: 2px solid #fff176;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 25px;
-            font-size: 15px;
-            color: #f57f17;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        /* 계급별 블록 */
-        .rank-block {
-            display: none;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-            animation: fadeIn 0.4s ease;
-        }
-        .rank-block.active {
-            display: block;
-        }
-        .rank-block.sa { border-top: 5px solid #ff7043; }
-        .rank-block.gyo { border-top: 5px solid #e64a19; }
-        
-        .rank-header {
-            padding: 15px 20px;
-            font-size: 18px;
-            font-weight: bold;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .sa .rank-header { background-color: #fff5f2; color: #d84315; }
-        .gyo .rank-header { background-color: #fbe9e7; color: #bf360c; }
-        
-        .score-badge {
-            font-size: 14px;
-            padding: 4px 14px;
-            border-radius: 15px;
-            color: #ffffff;
-            font-weight: bold;
-        }
-        .sa .score-badge { background-color: #ff7043; }
-        .gyo .score-badge { background-color: #e64a19; }
-
-        /* 테이블 구조 */
-        .roadmap-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        .roadmap-table th {
-            background-color: #f9f9f9;
-            color: #555555;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 12px 20px;
-            text-align: left;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .roadmap-table td {
-            padding: 20px;
-            vertical-align: top;
-            font-size: 14px;
-        }
-        .roadmap-table td:first-child {
-            width: 50%;
-            border-right: 1px solid #f0f0f0;
-        }
-
-        /* 팁 내부의 미니 일구 존 */
-        .mini-ilgu-zone {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            background-color: #fafafa;
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 3px solid #ff7043;
-        }
-        .mini-ilgu-img {
-            width: 45px;
-            height: auto;
-            border-radius: 4px;
-            flex-shrink: 0;
-        }
-        .mini-ilgu-txt {
-            font-size: 12px;
-            color: #555555;
-            line-height: 1.5;
-        }
-
-        /* 리스트 양식 */
-        .bullet-list {
-            list-style: none;
-        }
-        .bullet-list li {
-            position: relative;
-            padding-left: 22px;
-            margin-bottom: 12px;
-        }
-        .bullet-list li::before {
-            content: "•";
-            position: absolute;
-            left: 5px;
-            color: #ff7043;
-            font-weight: bold;
-            font-size: 16px;
-            line-height: 20px;
-        }
-        .bullet-list li strong {
-            color: #111111;
-        }
-        .point-txt {
-            color: #e65100;
-            font-weight: bold;
-            margin-left: 5px;
-        }
-        .desc-txt {
-            display: block;
-            font-size: 12px;
-            color: #777777;
-            margin-top: 2px;
-        }
-
-        /* 하단 알림 피드백 */
-        .warning-note {
-            padding: 15px;
-            background-color: #fafafa;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-            font-size: 12px;
-            color: #666666;
-            margin-top: 25px;
-            text-align: left;
-        }
-
-        /* 애니메이션 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.8; color: #333; background-color: #f9f9f9; }
+        .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #d84315; }
+        .btn-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab-btn { flex: 1; padding: 12px; border: 2px solid #ff7043; background: #fff; color: #ff7043; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        .tab-btn.active { background: #ff7043; color: #fff; }
+        .content { display: none; }
+        .content.active { display: block; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border-bottom: 1px solid #eee; padding: 12px 8px; text-align: left; }
+        th { color: #555; width: 60%; }
+        .score { font-weight: bold; color: #e65100; text-align: right; }
+        img { width: 80px; display: block; margin: 0 auto 20px; }
+        .desc { font-size: 0.9em; color: #777; margin-top: 5px; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>소방공무원 계급별 승진 가점 로드맵</h1>
-        <p>현행 가점 기준 및 수기 기록 바탕 시각화 자료</p>
-        
-        <div class="ilgu-container">
-            <img src="./일구.jpeg" alt="소방청 캐릭터 일구" class="ilgu-img">
-            <div class="ilgu-talk">
-                소방공무원 계급별 가점 기준을 안내합니다.
-                <span class="highlight-line">하단의 버튼을 선택하시면 해당 계급에 수록된 자격증 획득 로드맵 정보를 열람하실 수 있습니다.</span>
-            </div>
-        </div>
+    <img src="일구.jpeg" alt="일구">
+    <h2>승진 가점 로드맵</h2>
+    
+    <div class="btn-group">
+        <button class="tab-btn active" onclick="openTab(event, 's1')">소방사</button>
+        <button class="tab-btn" onclick="openTab(event, 's2')">소방교</button>
     </div>
 
-    <div class="tab-container">
-        <button class="tab-btn active" onclick="openTab('sa-tab', this)">소방사 단계 보기</button>
-        <button class="tab-btn" onclick="openTab('gyo-tab', this)">소방교 단계 보기</button>
+    <div id="s1" class="content active">
+        <p><strong>[목표 가점: 1.7점]</strong></p>
+        <table>
+            <tr><th>대형면허</th><td class="score">1.5점</td></tr>
+            <tr><th>위험물기능사</th><td class="score">0.2점</td></tr>
+        </table>
+        <p class="desc">※ 대형면허는 보유 가점으로 취득 시점 무관, 위험물은 이 단계에서 취득 추천.</p>
     </div>
 
-    <div class="content">
-        <div class="highlight-box">
-            📌 중요 지침: [전문능력 (교육훈련성적)] 가점과 [언어 등 자격 가점]은 상호 별개로 적용됨
-        </div>
-        
-        <div id="sa-tab" class="rank-block sa active">
-            <div class="rank-header">
-                <span>소방사 계급 취득 목표</span>
-                <span class="score-badge">목표 합산 가점: 1.7점</span>
-            </div>
-            <table class="roadmap-table">
-                <thead>
-                    <tr>
-                        <th>대상 자격증 및 반영 점수</th>
-                        <th>유의사항 및 취득 기준</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <ul class="bullet-list">
-                                <li><strong>대형면허</strong> <span class="point-txt">1.5점</span><span class="desc-txt">(보유 가점 / 취득 시점 제한 없음)</span></li>
-                                <li><strong>위험물기능사</strong> <span class="point-txt">0.2점</span><span class="desc-txt">(소방사 계급 단계 내 취득 완료 목표)</span></li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="bullet-list">
-                                <li>단일 항목 중 배점이 가장 큰 대형면허(1.5점)의 우선 확보가 최우선 과제입니다.</li>
-                                <li>위험물기능사를 이 단계에서 미리 패스해 두어야 다음 계급에서의 연계 가점 취득이 수월해집니다.</li>
-                            </ul>
-                            <div class="mini-ilgu-zone">
-                                <img src="./일구.jpeg" alt="미니 일구" class="mini-ilgu-img">
-                                <div class="mini-ilgu-txt">
-                                    <strong>일구의 팁:</strong> 대형면허는 취득 시점과 상관없이 보유 가점으로 인정되므로 가장 먼저 확보하는 것이 유리합니다!
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="gyo-tab" class="rank-block gyo">
-            <div class="rank-header">
-                <span>소방교 계급 취득 목표</span>
-                <span class="score-badge">목표 합산 가점: 1.2점 (언어 상한 0.5점 적용)</span>
-            </div>
-            <table class="roadmap-table">
-                <thead>
-                    <tr>
-                        <th>대상 자격증 및 반영 점수</th>
-                        <th>유의사항 및 취득 기준</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <ul class="bullet-list">
-                                <li><strong>컴퓨터활용능력 1급</strong> <span class="point-txt">0.5점</span><span class="desc-txt">(전산자격 가점 / 워드프로세서 중복 불가)</span></li>
-                                <li><strong>실용글쓰기 (630점 이상)</strong> <span class="point-txt">0.3점</span><span class="desc-txt">(언어능력 국어 분야 가점 기준 충족)</span></li>
-                                <li><strong>지텔프 (48점 이상)</strong> <span class="point-txt">0.2점</span><span class="desc-txt">(수기 메모 기준 / 언어능력 영어 가점 반영)</span></li>
-                                <li><strong>위험물산업기사</strong> <span class="point-txt">0.2점</span><span class="desc-txt">(동일 계열 상위 등급 격상 취득)</span></li>
-                            </ul>
-                        </td>
-                        <td>
-                            <ul class="bullet-list">
-                                <li><strong>지텔프 점수 기준:</strong> 메모에 명시된 지텔프 48점(0.2점) 기준을 반영하였습니다. 실용글쓰기(0.3점)와 합산 시 언어 최고점 한도인 0.5점을 완벽하게 충족합니다.</li>
-                                <li><strong>전산 및 동일 계열 안내:</strong> 컴활 1급 취득 시 하위 워드 가점은 제외됩니다. 또한 소방사 때의 기능사에 이어 산업기사로 업그레이드하는 동선입니다.</li>
-                            </ul>
-                            <div class="mini-ilgu-zone">
-                                <img src="./일구.jpeg" alt="미니 일구" class="mini-ilgu-img">
-                                <div class="mini-ilgu-txt">
-                                    <strong>일구의 팁:</strong> 언어능력 가점은 실용글쓰기 630점과 지텔프 48점을 더해 최고 한도인 0.5점을 딱 맞추는 전략이 핵심입니다!
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="warning-note">
-            ⚠️ <strong>이 답변은 출처가 명확하지 않은 답변입니다.</strong><br>
-            본 웹페이지에 게시된 자격증 목록 및 배점 구조는 사용자가 제공한 내부 서류(수기 기록물)를 기반으로 임시 시각화한 결과물입니다. 현행 소방공무원 승진임용 규정 및 각 시·도 소방본부별 세부 평정 지침은 시기에 따라 변경될 수 있으므로, 최종 승진 심사 대조 시에는 반드시 <strong>소방청 인사 교육 담당 부서의 최신 공문 및 규정</strong>을 교차 확인하시기 바랍니다.
-        </div>
+    <div id="s2" class="content">
+        <p><strong>[목표 가점: 1.3점]</strong></p>
+        <table>
+            <tr><th>컴퓨터활용능력 1급</th><td class="score">0.5점</td></tr>
+            <tr><th>실용글쓰기(630점)</th><td class="score">0.3점</td></tr>
+            <tr><th>지텔프(48점)</th><td class="score">0.2점</td></tr>
+            <tr><th>위험물산업기사</th><td class="score">0.3점</td></tr>
+        </table>
+        <p class="desc">※ 언어능력 합산 최대 0.5점 한도 준수(실용글쓰기+지텔프).</p>
     </div>
 </div>
 
 <script>
-    function openTab(tabId, element) {
-        const ArrayBlocks = document.querySelectorAll('.rank-block');
-        ArrayBlocks.forEach(block => block.classList.remove('active'));
-
-        const ArrayButtons = document.querySelectorAll('.tab-btn');
-        ArrayButtons.forEach(btn => btn.classList.remove('active'));
-
-        document.getElementById(tabId).classList.add('active');
-        element.classList.add('active');
+    function openTab(evt, id) {
+        document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        evt.currentTarget.classList.add('active');
     }
 </script>
 
