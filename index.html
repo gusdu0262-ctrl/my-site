@@ -2,33 +2,34 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>소방공무원 승진 가점 가이드</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>소방 승진 가점 가이드</title>
     <style>
-        body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.6; color: #333; background-color: #f9f9f9; }
-        .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h2 { text-align: center; color: #ff7043; margin-bottom: 25px; }
-        .ilgu-main-profile { text-align: center; margin-bottom: 20px; }
-        .ilgu-main-profile img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ff7043; }
+        body { font-family: 'Malgun Gothic', sans-serif; padding: 10px; margin: 0; background-color: #f9f9f9; color: #333; }
+        .container { max-width: 100%; margin: 0 auto; background: #fff; padding: 15px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        h2 { text-align: center; color: #ff7043; margin-bottom: 20px; font-size: 1.3em; }
+        .ilgu-main-profile { text-align: center; margin-bottom: 15px; }
+        .ilgu-main-profile img { width: 80px; height: 80px; border-radius: 50%; border: 3px solid #ff7043; }
         
-        .btn-group { display: flex; gap: 10px; margin-bottom: 25px; }
-        .tab-btn { flex: 1; padding: 12px; border: 2px solid #ff7043; background: #fff; color: #ff7043; font-weight: bold; border-radius: 10px; cursor: pointer; }
+        .btn-group { display: flex; gap: 8px; margin-bottom: 20px; }
+        .tab-btn { flex: 1; padding: 12px; border: 2px solid #ff7043; background: #fff; color: #ff7043; font-weight: bold; border-radius: 10px; font-size: 0.95em; cursor: pointer; }
         .tab-btn.active { background: #ff7043; color: #fff; }
         
         .content { display: none; }
         .content.active { display: block; }
-        .target-score { font-weight: bold; color: #e65100; margin-bottom: 15px; display: block; text-align: center; background: #fff4f1; padding: 8px; border-radius: 8px; }
+        .target-score { font-weight: bold; color: #e65100; margin-bottom: 15px; display: block; text-align: center; background: #fff4f1; padding: 10px; border-radius: 8px; font-size: 0.95em; }
 
-        .card { border: 1px solid #ffe0b2; padding: 15px; margin-bottom: 12px; border-radius: 10px; background: #fffaf7; cursor: pointer; border-left: 5px solid #ff7043; }
-        .card h4 { margin: 0; color: #d84315; font-size: 1.05em; }
+        .card { border: 1px solid #ffe0b2; padding: 15px; margin-bottom: 10px; border-radius: 10px; background: #fffaf7; border-left: 5px solid #ff7043; }
+        .card h4 { margin: 0; color: #d84315; font-size: 1em; }
         .detail { display: none; font-size: 0.9em; color: #555; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ffccbc; }
         
-        .ilgu-tip-container { margin-top: 12px; padding: 10px; background: #fff; border: 1px solid #ffccbc; border-radius: 8px; display: flex; align-items: center; gap: 10px; }
-        .ilgu-tip-container img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ff7043; }
-        .ilgu-tip-text { font-size: 0.85em; font-weight: bold; color: #a14e00; }
+        .ilgu-tip-container { margin-top: 10px; padding: 8px; background: #fff; border: 1px solid #ffccbc; border-radius: 8px; display: flex; align-items: center; gap: 8px; }
+        .ilgu-tip-container img { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ff7043; }
+        .ilgu-tip-text { font-size: 0.8em; font-weight: bold; color: #a14e00; }
 
-        .salary-section { margin-top: 35px; border-top: 2px solid #ff7043; padding-top: 20px; }
-        .salary-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
-        .salary-table th, .salary-table td { border: 1px solid #eee; padding: 10px; text-align: center; }
+        .salary-section { margin-top: 25px; border-top: 2px solid #ff7043; padding-top: 15px; }
+        .salary-table { width: 100%; border-collapse: collapse; font-size: 0.8em; }
+        .salary-table th, .salary-table td { border: 1px solid #eee; padding: 8px; text-align: center; }
         .predict-row { background: #ff7043; color: #fff; font-weight: bold; }
     </style>
 </head>
@@ -117,6 +118,5 @@
         detail.style.display = (detail.style.display === 'block') ? 'none' : 'block';
     }
 </script>
-
 </body>
 </html>
