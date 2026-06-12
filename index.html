@@ -3,62 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>소방공무원 승진 가점 로드맵</title>
+    <title>소방 승진 가점 상세 가이드</title>
     <style>
-        body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.8; color: #333; background-color: #f9f9f9; }
-        .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        body { font-family: 'Malgun Gothic', sans-serif; padding: 15px; background: #f4f4f9; color: #333; line-height: 1.6; }
+        .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 12px; }
         h2 { text-align: center; color: #d84315; }
-        .btn-group { display: flex; gap: 10px; margin-bottom: 20px; }
-        .tab-btn { flex: 1; padding: 12px; border: 2px solid #ff7043; background: #fff; color: #ff7043; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        .tab-btn { width: 48%; padding: 10px; border: none; background: #ddd; color: #555; border-radius: 5px; cursor: pointer; font-weight: bold; }
         .tab-btn.active { background: #ff7043; color: #fff; }
-        .content { display: none; }
+        .content { display: none; margin-top: 20px; }
         .content.active { display: block; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border-bottom: 1px solid #eee; padding: 12px 8px; text-align: left; }
-        th { color: #555; width: 60%; }
-        .score { font-weight: bold; color: #e65100; text-align: right; }
-        img { width: 80px; display: block; margin: 0 auto 20px; }
-        .desc { font-size: 0.9em; color: #777; margin-top: 5px; }
+        .card { border: 1px solid #eee; border-radius: 8px; padding: 15px; margin-bottom: 15px; background: #fffaf7; }
+        .card h4 { margin: 0 0 10px 0; color: #e65100; cursor: pointer; border-bottom: 1px dashed #ffb74d; }
+        .detail { display: none; font-size: 0.9em; padding-top: 10px; color: #555; }
+        img { width: 80px; display: block; margin: 0 auto 15px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <img src="ilgu.jpeg" alt="일구">
-    <h2>승진 가점 로드맵</h2>
-    
-    <div class="btn-group">
-        <button class="tab-btn active" onclick="openTab(event, 's1')">소방사</button>
-        <button class="tab-btn" onclick="openTab(event, 's2')">소방교</button>
+    <h2>승진 가점 상세 로드맵</h2>
+    <div style="text-align:center;">
+        <button class="tab-btn active" onclick="show(event, 's1')">소방사</button>
+        <button class="tab-btn" onclick="show(event, 's2')">소방교</button>
     </div>
 
     <div id="s1" class="content active">
-        <p><strong>[목표 가점: 1.7점]</strong></p>
-        <table>
-            <tr><th>대형면허</th><td class="score">1.5점</td></tr>
-            <tr><th>위험물기능사</th><td class="score">0.2점</td></tr>
-        </table>
-        <p class="desc">※ 대형면허는 보유 가점으로 취득 시점 무관, 위험물은 이 단계에서 취득 추천.</p>
+        <div class="card" onclick="toggle(this)">
+            <h4>▶ 대형면허 (1.5점)</h4>
+            <div class="detail">
+                • 준비기간: 1~2주 (운전전문학원 집중반 기준)<br>
+                • 평균비용: 약 60~80만 원<br>
+                • 팁: 소방차 운용의 필수! 취득 후 소방본부별 운전 교육 면제 혜택 확인 필수.
+            </div>
+        </div>
+        <div class="card" onclick="toggle(this)">
+            <h4>▶ 위험물기능사 (0.2점)</h4>
+            <div class="detail">
+                • 준비기간: 3~4주 (필기/실기 합산)<br>
+                • 평균비용: 약 10~15만 원 (교재비+응시료)<br>
+                • 팁: 문제은행 방식이므로 기출문제 반복 학습이 핵심. 실기는 작업형 주의!
+            </div>
+        </div>
     </div>
 
     <div id="s2" class="content">
-        <p><strong>[목표 가점: 1.3점]</strong></p>
-        <table>
-            <tr><th>컴퓨터활용능력 1급</th><td class="score">0.5점</td></tr>
-            <tr><th>실용글쓰기(630점)</th><td class="score">0.3점</td></tr>
-            <tr><th>지텔프(48점)</th><td class="score">0.2점</td></tr>
-            <tr><th>위험물산업기사</th><td class="score">0.3점</td></tr>
-        </table>
-        <p class="desc">※ 언어능력 합산 최대 0.5점 한도 준수(실용글쓰기+지텔프).</p>
+        <div class="card" onclick="toggle(this)">
+            <h4>▶ 컴퓨터활용능력 1급 (0.5점)</h4>
+            <div class="detail">
+                • 준비기간: 2~3개월 (난이도 높음)<br>
+                • 평균비용: 약 20~30만 원 (인강+응시료)<br>
+                • 팁: 2급보다 가점이 확실히 높으나 합격률이 낮음. 끈기 있는 도전 필수.
+            </div>
+        </div>
+        <div class="card" onclick="toggle(this)">
+            <h4>▶ 실용글쓰기 (0.3점)</h4>
+            <div class="detail">
+                • 준비기간: 2주<br>
+                • 평균비용: 약 8만 원<br>
+                • 팁: 공공기관 제출용이라 기출 문장 스타일을 익히면 점수 확보 유리.
+            </div>
+        </div>
+        <div class="card" onclick="toggle(this)">
+            <h4>▶ 지텔프 48점 (0.2점)</h4>
+            <div class="detail">
+                • 준비기간: 1~2주<br>
+                • 평균비용: 약 6만 원<br>
+                • 팁: 문법 영역을 완벽 공략하면 짧은 시간에 목표 점수 달성 가능.
+            </div>
+        </div>
     </div>
 </div>
 
 <script>
-    function openTab(evt, id) {
+    function show(evt, id) {
         document.querySelectorAll('.content').forEach(el => el.classList.remove('active'));
         document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         evt.currentTarget.classList.add('active');
+    }
+    function toggle(el) {
+        const detail = el.querySelector('.detail');
+        detail.style.display = (detail.style.display === 'block') ? 'none' : 'block';
     }
 </script>
 
