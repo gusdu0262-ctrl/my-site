@@ -2,16 +2,16 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>소방공무원 승진 가점 및 보수 가이드</title>
+    <title>소방공무원 승진 가점 가이드</title>
     <style>
         body { font-family: 'Malgun Gothic', sans-serif; padding: 20px; line-height: 1.6; color: #333; background-color: #f9f9f9; }
         .container { max-width: 500px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         h2 { text-align: center; color: #ff7043; margin-bottom: 25px; }
-        img { width: 90px; display: block; margin: 0 auto 20px; border-radius: 50%; }
+        .ilgu-main-profile { text-align: center; margin-bottom: 20px; }
+        .ilgu-main-profile img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #ff7043; }
         
         .btn-group { display: flex; gap: 10px; margin-bottom: 25px; }
-        .tab-btn { flex: 1; padding: 12px; border: 2px solid #ff7043; background: #fff; color: #ff7043; font-weight: bold; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .tab-btn { flex: 1; padding: 12px; border: 2px solid #ff7043; background: #fff; color: #ff7043; font-weight: bold; border-radius: 10px; cursor: pointer; }
         .tab-btn.active { background: #ff7043; color: #fff; }
         
         .content { display: none; }
@@ -22,19 +22,21 @@
         .card h4 { margin: 0; color: #d84315; font-size: 1.05em; }
         .detail { display: none; font-size: 0.9em; color: #555; margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ffccbc; }
         
+        .ilgu-tip-container { margin-top: 12px; padding: 10px; background: #fff; border: 1px solid #ffccbc; border-radius: 8px; display: flex; align-items: center; gap: 10px; }
+        .ilgu-tip-container img { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ff7043; }
+        .ilgu-tip-text { font-size: 0.85em; font-weight: bold; color: #a14e00; }
+
         .salary-section { margin-top: 35px; border-top: 2px solid #ff7043; padding-top: 20px; }
-        .salary-section h3 { text-align: center; color: #ff7043; font-size: 1.1em; margin-bottom: 15px; }
         .salary-table { width: 100%; border-collapse: collapse; font-size: 0.85em; }
         .salary-table th, .salary-table td { border: 1px solid #eee; padding: 10px; text-align: center; }
-        .salary-table th { background: #fff4f1; color: #d84315; font-weight: bold; }
         .predict-row { background: #ff7043; color: #fff; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="ilgu.jpeg" alt="일구">
-    <h2>승진 가점 상세 로드맵</h2>
+    <div class="ilgu-main-profile"><img src="ilgu.jpeg" alt="일구"></div>
+    <h2>소방공무원 승진 가점 가이드</h2>
     
     <div class="btn-group">
         <button class="tab-btn active" onclick="openTab(event, 's1')">소방사</button>
@@ -45,11 +47,17 @@
         <span class="target-score">🎯 소방사 목표 가점: 1.7점</span>
         <div class="card" onclick="toggleDetail(this)">
             <h4>▶ 대형면허 (1.5점)</h4>
-            <div class="detail">• 준비기간: 1~2주 (운전전문학원 집중반)<br>• 평균비용: 60~80만 원<br>• 팁: 소방차 운용 필수, 운전 교육 면제 혜택 확인</div>
+            <div class="detail">
+                • 준비: 1~2주 / 비용: 60~80만<br>
+                <div class="ilgu-tip-container"><img src="ilgu.jpeg"><span class="ilgu-tip-text">일구의 팁: 학원 집중반 활용하면 1주 완성 가능!</span></div>
+            </div>
         </div>
         <div class="card" onclick="toggleDetail(this)">
             <h4>▶ 위험물기능사 (0.2점)</h4>
-            <div class="detail">• 준비기간: 3~4주<br>• 평균비용: 10~15만 원<br>• 팁: 문제은행 기출 무한 반복 학습</div>
+            <div class="detail">
+                • 준비: 3~4주 / 비용: 10~15만 / 합격: 평균 60점<br>
+                <div class="ilgu-tip-container"><img src="ilgu.jpeg"><span class="ilgu-tip-text">일구의 팁: 필기는 기출 5개년 무한 반복이 정답!</span></div>
+            </div>
         </div>
     </div>
 
@@ -57,19 +65,31 @@
         <span class="target-score">🎯 소방교 목표 가점: 1.3점</span>
         <div class="card" onclick="toggleDetail(this)">
             <h4>▶ 실용글쓰기 (0.3점)</h4>
-            <div class="detail">• 준비기간: 1~2주<br>• 평균비용: 5~8만 원<br>• 팁: 주관식 감점 방지 및 원고지 작성법 숙지</div>
+            <div class="detail">
+                • 준비: 1~2주 / 비용: 5~8만 / 합격: 630점 이상<br>
+                <div class="ilgu-tip-container"><img src="ilgu.jpeg"><span class="ilgu-tip-text">일구의 팁: 공공기관 서식은 무조건 암기하세요!</span></div>
+            </div>
         </div>
         <div class="card" onclick="toggleDetail(this)">
             <h4>▶ 컴활 1급 (0.5점)</h4>
-            <div class="detail">• 준비기간: 2~3개월<br>• 평균비용: 20~30만 원<br>• 팁: 엑세스/엑셀 기출 반복</div>
+            <div class="detail">
+                • 준비: 2~3개월 / 비용: 20~30만 / 합격: 평균 60점<br>
+                <div class="ilgu-tip-container"><img src="ilgu.jpeg"><span class="ilgu-tip-text">일구의 팁: 실기 쿼리 문제부터 잡아야 합격합니다.</span></div>
+            </div>
         </div>
         <div class="card" onclick="toggleDetail(this)">
-            <h4>▶ 지텔프(48점) (0.2점)</h4>
-            <div class="detail">• 준비기간: 1~2주<br>• 평균비용: 6~10만 원<br>• 팁: 문법 집중 공략</div>
+            <h4>▶ 지텔프 (0.2점)</h4>
+            <div class="detail">
+                • 준비: 1~2주 / 비용: 6~10만 / 합격: 48점 이상<br>
+                <div class="ilgu-tip-container"><img src="ilgu.jpeg"><span class="ilgu-tip-text">일구의 팁: 문법 파트 80점 목표로 올인하세요!</span></div>
+            </div>
         </div>
         <div class="card" onclick="toggleDetail(this)">
             <h4>▶ 위험물 산업기사 (0.3점)</h4>
-            <div class="detail">• 준비기간: 1~2개월<br>• 평균비용: 15~20만 원<br>• 팁: 전술 시험과 연계되는 심화 학습</div>
+            <div class="detail">
+                • 준비: 1~2개월 / 비용: 15~20만 / 합격: 평균 60점<br>
+                <div class="ilgu-tip-container"><img src="ilgu.jpeg"><span class="ilgu-tip-text">일구의 팁: 소방경 전술 공부라 생각하고 깊게 하세요.</span></div>
+            </div>
         </div>
     </div>
 
@@ -77,12 +97,11 @@
         <h3>💰 계급별 수당 및 세후 급여 (예측)</h3>
         <table class="salary-table">
             <tr><th>구분</th><th>소방사</th><th>소방교</th><th>소방장</th></tr>
-            <tr><td>시간외(시)</td><td>11,175</td><td>12,584</td><td>12,934</td></tr>
-            <tr><td>야간(시)</td><td>3,725</td><td>4,195</td><td>4,311</td></tr>
-            <tr><td>휴일(일)</td><td>89,830</td><td>101,153</td><td>103,969</td></tr>
-            <tr class="predict-row"><td>세후(예측)</td><td>약 300만</td><td>약 315만</td><td>약 340만</td></tr>
+            <tr><td>시간외(시)</td><td>11,175원</td><td>12,584원</td><td>12,934원</td></tr>
+            <tr><td>야간(시)</td><td>3,725원</td><td>4,195원</td><td>4,311원</td></tr>
+            <tr><td>휴일(일)</td><td>89,830원</td><td>101,153원</td><td>103,969원</td></tr>
+            <tr class="predict-row"><td>세후(예측)</td><td>약 3,000,000원</td><td>약 3,150,000원</td><td>약 3,400,000원</td></tr>
         </table>
-        <p style="font-size:0.7em; color:#999; text-align:center; margin-top:10px;">※ 세후 월급은 실무 수당 반영 기준 재추정치입니다.</p>
     </div>
 </div>
 
